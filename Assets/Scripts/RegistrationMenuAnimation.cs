@@ -12,6 +12,4 @@ public class RegistrationMenuAnimation : MonoBehaviour
         transform.DOMoveY(targetPos.y, animSpeed);
 
     }
-
-
 }
