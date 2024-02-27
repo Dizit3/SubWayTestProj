@@ -11,9 +11,9 @@ public class AuthManager : MonoBehaviour
         FirebaseAuth _auth = FirebaseAuth.DefaultInstance;
     }
 
-    public void SignIn(string email, string password)
+    public void SignIn(AuthData userData)
     {
-        _auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task =>
+        _auth.SignInWithEmailAndPasswordAsync(userData.Email.GetEmail(), userData.Password.GetPass()).ContinueWith(task =>
         {
             if (task.IsCanceled)
             {
@@ -33,9 +33,9 @@ public class AuthManager : MonoBehaviour
     }
 
 
-    public void CreateAccount(string email, string password)
+    public void CreateAccount(AuthData userData)
     {
-        _auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task =>
+        _auth.CreateUserWithEmailAndPasswordAsync(userData.Email.GetEmail(), userData.Password.GetPass()).ContinueWith(task =>
         {
             if (task.IsCanceled)
             {
